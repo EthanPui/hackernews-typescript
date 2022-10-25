@@ -1,4 +1,4 @@
-import { extendType, objectType } from "nexus";
+import { extendType, nonNull, objectType, stringArg } from "nexus";   
 import { NexusGenObjects } from "../../nexus-typegen";  
 
 export const Link = objectType({
@@ -36,3 +36,29 @@ export const LinkQuery = extendType({  // 2 You are extending the Query root typ
 });
 // every field inside the schema definition is backed by one resolver function whose responsibility it is to return the data for precisely that field.
 // all the GraphQL server has to do is invoke all resolver functions for the fields that are contained in the query and then package up the response according to the query’s shape. Query resolution thus merely becomes a process of orchestrating the invocation of resolver functions!
+
+export const LinkMutation = extendType({  // 1
+    type: "Mutation",    
+    definition(t) {
+        t.nonNull.field("post", {  // 2
+            type: "Link",  
+            args: {   // 3
+                description: nonNull(stringArg()),
+                url: nonNull(stringArg()),
+            },
+            
+            resolve(parent, args, context) {    
+                const { description, url } = args;  // 4
+                
+                let idCount = links.length + 1;  // 5
+                const link = {
+                    id: idCount,
+                    description: description,
+                    url: url,
+                };
+                links.push(link);
+                return link;
+            },
+        });
+    },
+});
