@@ -12,4 +12,8 @@ export const schema = makeSchema({
 	// These generated types will help ensure typesafety in your application code and keep your GraphQL schema definition in sync with your schema implementation
     typegen: join(process.cwd(), "nexus-typegen.ts"), // 3
   },
+  contextType: {  
+	module: join(process.cwd(), "./src/context.ts"),  // 1
+	export: "Context",  // 2
+	},
 })
