@@ -18,7 +18,6 @@ Prisma: Used to access your database inside of GraphQL resolvers.
 	- Implementing signup/login functionality (authenticate users against API, also allow us to check permissions of users for certain API operations)
 	- Add vote feature
 
-
-
 # Learning Notes
+1. GraphQL schema are object types, which just represent a kind of object you can fetch from your service, and what fields it has.
 ![Image showing Query and Mutators](learning-img/query-mutators.png)
