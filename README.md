@@ -23,4 +23,4 @@ Prisma: Used to access your database inside of GraphQL resolvers.
 #Notes
 1. Every GraphQL service has a query type and sometimes mutation type. These are same as regular object types, but they define the entry point of every GraphQL query. 
 
-![Image showing Query and Mutators](learning-img\query-mutators.png)
+![Image showing Query and Mutators](learning-img/query-mutators.png)
